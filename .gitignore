@@ -1,0 +1,25 @@
+# Model weights (too large for GitHub)
+models/deepseek-financial-lora-final/adapter_model.safetensors
+
+# macOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# LaTeX build artifacts
+*.fdb_latexmk
+*.fls
+*.log
+*.aux
+*.out
+*.synctex.gz
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Misc
+=*
+from
