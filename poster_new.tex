@@ -17,6 +17,12 @@
 \pgfplotsset{compat=1.14}
 \usepackage{anyfontsize}
 
+% Override exampleblock background to light yellow
+\definecolor{lightyellow}{RGB}{255, 252, 215}
+\setbeamercolor{block example title}{fg=umichblue,bg=lightyellow}
+\setbeamercolor{block example separator}{bg=black}
+\setbeamercolor{block example body}{fg=black,bg=lightyellow}
+
 % ====================
 % Lengths
 % ====================
@@ -118,34 +124,32 @@
     \heading{Training Corpus \normalfont\small(63,395 train / 7,979 test)}
 
     \begin{table}
-      \centering
-      \small
-      \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrp{0.44\linewidth}}
+      \centering\small
+      \begin{tabular}{@{}lrp{0.52\linewidth}@{}}
         \toprule
         \textbf{Dataset} & \textbf{Size} & \textbf{Selection Rationale} \\
         \midrule
-        FPB          &  2,264  & 100\% inter-annotator agreement; highest label quality \\[0.4ex]
-        DS2          & 100,037 & Multi-source aggregation (FinGPT, Twitter); provides scale \\[0.4ex]
-        FLARE-SM-ACL &  27,056 & Market reasoning beyond sentiment; multimodal signal \\
+        FPB          &   2,264 & 100\% inter-annotator agreement; gold-standard label quality \\[0.3ex]
+        DS2          & 100,037 & Multi-source (FinGPT, Twitter); provides training scale \\[0.3ex]
+        FLARE-SM-ACL &  27,056 & Stock movement reasoning; extends task diversity \\
         \bottomrule
-      \end{tabular*}
+      \end{tabular}
     \end{table}
 
     \heading{Evaluation Benchmarks}
 
     \begin{table}
-      \centering
-      \small
-      \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrl}
+      \centering\small
+      \begin{tabular}{@{}lrp{0.52\linewidth}@{}}
         \toprule
-        \textbf{Benchmark} & \textbf{Task} & \textbf{Size} & \textbf{Split} \\
+        \textbf{Benchmark} & \textbf{Size} & \textbf{Description} \\
         \midrule
-        en-FPB      & Sentiment (news)    &   393 & In-dist.  \\
-        FiQA-SA     & Sentiment (Q\&A)    &   217 & Unseen    \\
-        SM-BigData  & Stock movement      & 1,472 & Unseen    \\
-        SM-CIKM     & Stock movement      & 1,143 & Unseen    \\
+        en-FPB     &   393 & FPB (FLARE ver.); in-distribution sentiment reference \\[0.3ex]
+        FiQA-SA    &   217 & Financial Q\&A opinions; unseen cross-domain sentiment \\[0.3ex]
+        SM-BigData & 1,472 & BigData22 stock movement; unseen social media signals \\[0.3ex]
+        SM-CIKM    & 1,143 & CIKM18 stock movement; unseen market prediction \\
         \bottomrule
-      \end{tabular*}
+      \end{tabular}
     \end{table}
 
   \end{exampleblock}
@@ -161,14 +165,14 @@
 
     \heading{Training Convergence}
 
-    We fine-tune DeepSeek-R1-Distill-Llama-8B with QLoRA on 63K samples
-    for one epoch (${\sim}16$K steps). Cross-entropy loss decreases steadily
-    from ${\sim}3.0$ to ${\sim}1.75$, confirming stable convergence without
-    overfitting.
+    Two-stage training on DeepSeek-R1-Distill-Llama-8B (LoRA $r=16$):
+    Stage~1 QLoRA SFT loss drops from ${\sim}4.0$ to ${\sim}1.8$;
+    Stage~2 CoT-SFT converges to ${\sim}0.5$, reflecting the richer
+    chain-of-thought supervision signal.
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.85\textwidth]{figures/fig5_training_loss.png}
+      \includegraphics[width=0.85\textwidth]{figures/fig8_qlora_vs_cotsft_loss.png}
     \end{figure}
 
     \heading{Accuracy on Open FinLLM Benchmarks}
