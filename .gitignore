@@ -13,6 +13,8 @@ models/deepseek-financial-lora-final/adapter_model.safetensors
 *.log
 *.aux
 *.out
+*.bbl
+*.blg
 *.synctex.gz
 
 # Python
