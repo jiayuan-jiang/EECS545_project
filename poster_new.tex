@@ -16,6 +16,7 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.14}
 \usepackage{anyfontsize}
+\usepackage{tabularx}
 
 % Override exampleblock background to light yellow
 \definecolor{lightyellow}{RGB}{255, 252, 215}
@@ -51,7 +52,7 @@
 \footercontent{
   EECS 545 --- Machine Learning \hfill
   University of Michigan, April 2026 \hfill
-  \href{mailto:jiayuanj@umich.edu}{jiayuanj@umich.edu}}
+  \href{mailtojiayuanj@umich.edu}{\texttt{github.com/jiayuan-jiang/EECS545\_project}}}
 
 % ====================
 % Logo
@@ -74,19 +75,88 @@
 
   \begin{block}{Motivation}
 
-    [TODO: motivation content]
+    Large Language Models (LLMs) have demonstrated impressive general-purpose
+    capabilities, yet they consistently underperform in specialized financial
+    domains. Financial texts carry \textbf{domain-specific terminology},
+    \textbf{implicit sentiment cues}, and \textbf{complex causal reasoning}
+    absent from general corpora --- for example, a phrase like
+    ``earnings in line with expectations'' may signal a mildly negative
+    outcome to a financial analyst, while a general LLM interprets it as
+    neutral. We target two core tasks --- \textbf{financial sentiment
+    analysis} and \textbf{text-driven stock movement prediction} --- by
+    fine-tuning a compact 8B model with QLoRA on curated financial data,
+    and investigate whether CoT supervision further improves financial
+    reasoning beyond label-only SFT.
 
   \end{block}
 
   \begin{block}{Problem Statement}
 
-    [TODO: problem statement content]
+    Given a piece of financial text --- such as a news headline, analyst
+    commentary, or social media post --- we address two binary
+    classification tasks:
+
+    \begin{itemize}
+      \item \textbf{Financial Sentiment Analysis:} determine whether the
+        text conveys a \emph{positive} or \emph{negative} market-relevant
+        signal.
+      \item \textbf{Stock Movement Prediction:} predict whether the
+        referenced stock will \emph{rise} or \emph{fall} based on textual
+        and quantitative signals.
+    \end{itemize}
+
+    Both tasks are unified under a single positive/negative framework.
+    We investigate a two-stage fine-tuning strategy: Stage~1 adapts the
+    base model via label-only SFT; Stage~2 enhances reasoning via
+    Chain-of-Thought SFT with structured \texttt{<think>} traces.
+    The central hypothesis is that CoT supervision yields more
+    interpretable and accurate predictions than label-only fine-tuning,
+    particularly on out-of-distribution benchmarks.
 
   \end{block}
 
   \begin{block}{Related Work}
 
-    [TODO: related work content]
+    \textbf{FinBERT} (Araci, 2019) established domain-specific pre-training
+    as the baseline for financial NLP, showing BERT fine-tuned on financial
+    text outperforms general-purpose models on sentiment tasks.
+
+    \textbf{BloombergGPT} (Wu et al., 2023) demonstrated that large-scale
+    financial pre-training yields strong performance but requires massive
+    proprietary data, motivating parameter-efficient alternatives.
+
+    \textbf{PIXIU} (Xie et al., 2023) introduced a comprehensive
+    financial instruction-tuning benchmark (FinBen) and showed that
+    supervised fine-tuning on diverse financial tasks achieves competitive
+    results on the Open FinLLM Leaderboard --- the evaluation framework
+    we adopt.
+
+    \textbf{Long CoT SFT} (Ou \& Yin, 2025) demonstrated that
+    chain-of-thought supervised fine-tuning is a critical prerequisite
+    for instilling robust reasoning in lightweight LLMs, outperforming
+    reinforcement learning as a standalone strategy --- directly
+    motivating our Stage~2 CoT-SFT design.
+
+  \end{block}
+
+  \begin{block}{References}
+
+    \scriptsize
+    \setlength{\parskip}{0.3ex}
+    \noindent
+    [1] Ou \& Yin. \textit{Empowering Lightweight MLLMs via Long CoT SFT}. arXiv:2509.03321, 2025.
+
+    \noindent
+    [2] Araci. \textit{FinBERT: Financial Sentiment Analysis with Pre-trained LMs}. arXiv:1908.10063, 2019.
+
+    \noindent
+    [3] Xie et al. \textit{PIXIU: A Large Language Model and Benchmark for Finance}. NeurIPS, 2023.
+
+    \noindent
+    [4] Wu et al. \textit{BloombergGPT: A Large Language Model for Finance}. arXiv:2303.17564, 2023.
+
+    \noindent
+    [5] Huang et al. \textit{Open-FinLLMs: Open Multimodal LLMs for Financial Applications}. arXiv:2402.04616, 2024.
 
   \end{block}
 
@@ -101,31 +171,37 @@
 
     \heading{Two-Stage Fine-Tuning Pipeline}
 
-    [TODO: pipeline figure and description]
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.7\textwidth]{pipeline_diagram.png}
+    \end{figure}
 
     \heading{Base Model and Fine-Tuning Method}
 
-    [TODO: DeepSeek-R1-Distill-Llama-8B + QLoRA details]
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.7\textwidth]{qlora_diagram.png}
+    \end{figure}
 
   \end{block}
 
   \begin{exampleblock}{Data}
 
-    Fine-tuning quality is bottlenecked by data quality and diversity.
+  Fine-tuning quality is bottlenecked by data quality and diversity.
     We select three datasets that balance \textbf{annotation reliability}
     (FPB: 100\% inter-annotator agreement), \textbf{scale} (DS2: 100K+
     multi-source samples), and \textbf{task diversity} (FLARE-SM-ACL:
     market-movement reasoning). Each sample is further augmented via
-    \textbf{DeepSeek API} into CoT-SFT format --- replacing bare labels
+    \textbf{DeepSeek API} into CoT-SFT format, replacing bare labels
     with structured \texttt{<think>}\ldots\texttt{</think>} reasoning
-    traces --- producing interpretable, reasoning-rich training signal
+    traces, producing interpretable, reasoning-rich training signal
     aligned with DeepSeek-R1's native format (Ou \& Yin, 2025).
 
     \heading{Training Corpus \normalfont\small(63,395 train / 7,979 test)}
 
     \begin{table}
       \centering\small
-      \begin{tabular}{@{}lrp{0.52\linewidth}@{}}
+      \begin{tabularx}{\linewidth}{@{}lrX@{}}
         \toprule
         \textbf{Dataset} & \textbf{Size} & \textbf{Selection Rationale} \\
         \midrule
@@ -133,14 +209,14 @@
         DS2          & 100,037 & Multi-source (FinGPT, Twitter); provides training scale \\[0.3ex]
         FLARE-SM-ACL &  27,056 & Stock movement reasoning; extends task diversity \\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{table}
 
     \heading{Evaluation Benchmarks}
 
     \begin{table}
       \centering\small
-      \begin{tabular}{@{}lrp{0.52\linewidth}@{}}
+      \begin{tabularx}{\linewidth}{@{}lrX@{}}
         \toprule
         \textbf{Benchmark} & \textbf{Size} & \textbf{Description} \\
         \midrule
@@ -149,8 +225,38 @@
         SM-BigData & 1,472 & BigData22 stock movement; unseen social media signals \\[0.3ex]
         SM-CIKM    & 1,143 & CIKM18 stock movement; unseen market prediction \\
         \bottomrule
-      \end{tabular}
+      \end{tabularx}
     \end{table}
+
+
+    % Four benchmarks from the Open FinLLM Leaderboard were used:
+    % \textbf{en-FPB} as an in-distribution reference, and
+    % \textbf{FiQA-SA}, \textbf{SM-BigData}, \textbf{SM-CIKM} as
+    % entirely unseen datasets to assess generalization across
+    % sentiment analysis and stock movement tasks.
+
+    % \heading{CoT Augmentation via DeepSeek API}
+
+    % Each training sample was augmented by querying \textbf{DeepSeek-chat}
+    % (temp$=0.7$, max\_tokens$=300$) to generate a structured reasoning
+    % trace. The model output was reformatted from a bare label into a
+    % \texttt{<think>}\,\ldots\,\texttt{</think>} reasoning chain followed
+    % by the final sentiment label, yielding a \textbf{CoT-SFT} dataset.
+
+    % \begin{itemize}
+    %   \item \textbf{Interpretability:} predictions with explicit
+    %     financial reasoning, not just a label
+    %   \item \textbf{Reasoning capability:} long CoT SFT is a proven
+    %     prerequisite for instilling reasoning in lightweight LLMs
+    %     (Ou \& Yin, 2025) 
+    %   \item \textbf{Format alignment:} matches DeepSeek-R1's native
+    %     \texttt{<think>} format, enabling effective adapter fine-tuning
+    % \end{itemize}
+
+    All datasets were unified into a binary positive/negative format;
+    neutral labels were removed. en-FPB shares the same source as the
+    training FPB, while the remaining three benchmarks are entirely
+    unseen, testing out-of-distribution generalization.
 
   \end{exampleblock}
 
@@ -175,7 +281,7 @@
       \includegraphics[width=0.85\textwidth]{figures/fig8_qlora_vs_cotsft_loss.png}
     \end{figure}
 
-    \heading{Accuracy on Open FinLLM Benchmarks}
+    \heading{Accuracy on Open FinLLM Benchmarks (\%)}
 
     We evaluate on four benchmarks from the Open FinLLM Leaderboard:
     FPB (news sentiment), FiQASA (Q\&A sentiment), SM-BigData and SM-CIKM
@@ -185,6 +291,19 @@
     over the strongest baseline), while stock movement tasks also improve,
     confirming that domain fine-tuning generalizes across financial NLP.
 
+    % \begin{table}
+    %   \centering
+    %   \begin{tabular}{lcccc}
+    %     \toprule
+    %     \textbf{Model} & \textbf{FPB} & \textbf{FiQASA} & \textbf{SM-BD} & \textbf{SM-CIKM} \\
+    %     \midrule
+    %     Mistral-7B              & 85.5 & 72.8 & 49.1 & 47.3 \\
+    %     Llama-3-8B              & 69.5 & 82.0 & 43.1 & 39.3 \\
+    %     DeepSeek-8B (base)      & 83.5 & 57.6 & 55.0 & 49.3 \\
+    %     \textbf{FinMini (Ours)} & \textbf{93.1} & \textbf{94.5} & \textbf{57.1} & \textbf{52.2} \\
+    %     \bottomrule
+    %   \end{tabular}
+    % \end{table}
     \begin{figure}
       \centering
       \includegraphics[width=\textwidth]{figures/fig7_bar.png}
@@ -194,30 +313,21 @@
 
   \begin{alertblock}{Conclusion}
 
-    [TODO: conclusion bullet points]
+    \begin{itemize}
+      \item QLoRA SFT on domain-specific data consistently outperforms
+        general-purpose baselines across all four benchmarks, with
+        \textbf{+9.6\%} on FPB and \textbf{+12.5\%} on FiQASA over the
+        strongest baseline.
+      \item CoT-SFT further boosts sentiment accuracy to
+        \textbf{98.5\%} (FPB) and \textbf{97.7\%} (FiQASA), confirming
+        that structured reasoning supervision significantly enhances
+        financial NLP performance.
+      \item Both stages improve stock movement prediction, demonstrating
+        that domain fine-tuning generalizes beyond pure sentiment tasks.
+    \end{itemize}
 
   \end{alertblock}
 
-  \begin{block}{References}
-
-    \scriptsize
-    \setlength{\parskip}{0.3ex}
-    \noindent
-    [1] Ou \& Yin. \textit{Empowering Lightweight MLLMs via Long CoT SFT}. arXiv:2509.03321, 2025.
-
-    \noindent
-    [2] Araci. \textit{FinBERT: Financial Sentiment Analysis with Pre-trained LMs}. arXiv:1908.10063, 2019.
-
-    \noindent
-    [3] Xie et al. \textit{PIXIU: A Large Language Model and Benchmark for Finance}. NeurIPS, 2023.
-
-    \noindent
-    [4] Wu et al. \textit{BloombergGPT: A Large Language Model for Finance}. arXiv:2303.17564, 2023.
-
-    \noindent
-    [5] Huang et al. \textit{Open-FinLLMs: Open Multimodal LLMs for Financial Applications}. arXiv:2402.04616, 2024.
-
-  \end{block}
 
 \end{column}
 
