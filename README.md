@@ -22,6 +22,15 @@ This project benchmarks open-source LLMs on financial sentiment classification a
 | FinMini QLoRA-SFT | 8B | Domain fine-tuned (Stage 1) |
 | FinMini CoT-SFT | 8B | Chain-of-Thought fine-tuned (Stage 2) |
 
+**Training data (CoT-SFT pipeline):**
+
+| Dataset | HuggingFace Source | Train | Test | Notes |
+|---|---|---|---|---|
+| DS2 (multi-source) | `sjyuxyz/financial-sentiment-analysis` | ~63K | ~7.9K | FinGPT, Twitter, zeroshot tweets |
+| FPB | `FinanceMTEB/financial_phrasebank` | ~0.8K | ~0.2K | 80/20 split; 100% annotator agreement |
+| FLARE-SM-ACL | `TheFinAI/flare-sm-acl` | 20.8K | 3.7K | Stock movement prediction (Rise/Fall → pos/neg) |
+| **Merged** | — | **84,176** | **11,699** | Neutral labels filtered; binary positive/negative only |
+
 ---
 
 ## Benchmarks
@@ -75,7 +84,7 @@ We adopt a two-stage fine-tuning approach for DeepSeek-R1-Distill-Llama-8B:
 
 **Stage 1 — QLoRA-SFT:** Label-only supervised fine-tuning using LoRA adapters (r=16, α=32, target modules: q/k/v/o/gate/up/down projections). Training runs ~12,370 gradient steps, reducing loss from 2.91 → 1.72.
 
-**Stage 2 — CoT-SFT:** Chain-of-Thought supervised fine-tuning. The model is trained on examples with explicit `<think>reasoning</think>` traces, teaching it to reason step-by-step before producing a sentiment label. This stage yields additional accuracy gains of ~3 pp on formal text benchmarks.
+**Stage 2 — CoT-SFT:** Chain-of-Thought supervised fine-tuning. Training data is first constructed by calling the DeepSeek API (`deepseek-chat`) to generate 3–4 sentence reasoning traces for each labeled sample, producing `train_cot_sft.json`. The model is then trained on examples with explicit `<think>reasoning</think>` output format, teaching it to reason step-by-step before producing a sentiment label. This stage yields additional accuracy gains of ~3 pp on formal text benchmarks.
 
 **Inference config:** 4-bit NF4 double-quant (bitsandbytes), `max_new_tokens=32`, greedy decoding.
 
@@ -86,6 +95,7 @@ We adopt a two-stage fine-tuning approach for DeepSeek-R1-Distill-Llama-8B:
 ```
 EECS545_project/
 ├── notebooks/                        # Jupyter notebooks
+│   ├── data_processing.ipynb         # Data loading, merging & CoT annotation
 │   ├── FT.ipynb                      # QLoRA fine-tuning (Stage 1)
 │   ├── CoT_SFT.ipynb                 # Chain-of-Thought SFT (Stage 2)
 │   └── llm_long_short_strategy.ipynb # LLM-driven trading strategy
@@ -158,6 +168,16 @@ python scripts/generate_plots.py
 python scripts/generate_bar.py
 python scripts/generate_heatmap.py
 ```
+
+### Data Preprocessing
+
+Run `notebooks/data_processing.ipynb` to reproduce the training data pipeline:
+1. Loads DS2, FPB, and FLARE-SM-ACL from HuggingFace
+2. Filters neutral labels and unifies label format (binary: positive/negative)
+3. Merges all sources → `train_financial_sentiment_merged.json` (84,176 train / 11,699 test)
+4. Calls DeepSeek API to generate `<think>` reasoning traces → `train_cot_sft.json`
+
+Requires a DeepSeek API key set in the notebook (`API_KEY` variable).
 
 ### Fine-tuning
 
