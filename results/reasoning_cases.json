@@ -1,0 +1,446 @@
+[
+  {
+    "quarter": "2023Q1",
+    "long_top3": [
+      {
+        "ticker": "GOOGL",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript highlights strong business performance, momentum in key growth areas like Search and Cloud, and multiple forward-looking initiatives driven by AI advancements. The language is explicitly optimistic, focusing on progress and opportunities for long-term value creation."
+      },
+      {
+        "ticker": "ALLE",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong Q1 results with 27.6% revenue growth and 40% EPS growth, driven by robust demand in key segments. Management explicitly raised its full-year outlook for revenue, EPS, and cash flow, indicating confidence in continued positive performance."
+      },
+      {
+        "ticker": "ABT",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong quarterly results, exceeding EPS expectations and showing broad-based organic sales growth. Management expresses confidence in the sustainability of this performance and provides unchanged full-year guidance, indicating a stable and positive outlook."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "SW",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is typically interpreted as a negative signal for future performance."
+      },
+      {
+        "ticker": "SOLV",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or guidance provided, and the absence of a transcript suggests potential concerns."
+      },
+      {
+        "ticker": "TKO",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available from the earnings call transcript to support a positive outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2023Q2",
+    "long_top3": [
+      {
+        "ticker": "GOOGL",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript highlights strong year-over-year growth across all revenue streams, including a 28% increase in Google Cloud revenue. It emphasizes major, user-validated product innovations like the Search Generative Experience and Bard, driven by deep investment in AI. The leadership expresses enthusiasm for future opportunities and cost discipline, indicating a strong forward-looking outlook."
+      },
+      {
+        "ticker": "ABBV",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript reports strong financial performance, exceeding guidance, and highlights robust growth across multiple high-value therapeutic areas. The company is raising its full-year guidance, indicating strong operational execution and confidence in future growth."
+      },
+      {
+        "ticker": "ADBE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript details record revenue, strong year-over-year growth, raised financial targets, and enthusiastic language about strategic execution and transformative innovation in generative AI and AI-powered tools."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "BF.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available from the earnings call transcript to support a positive outlook."
+      },
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive earnings call transcript available to support a positive outlook."
+      },
+      {
+        "ticker": "TKO",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or management guidance available to support a positive outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2023Q3",
+    "long_top3": [
+      {
+        "ticker": "AES",
+        "llm_score": 100,
+        "reasoning_summary": "The company reports strong quarterly results, exceeds full-year guidance, and has a robust pipeline of long-term renewable projects. Management expresses confidence in future performance, reinforces financial metrics, and successfully secures funding through asset sales and tax credit transfers."
+      },
+      {
+        "ticker": "ABBV",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong earnings, raised its full-year guidance, and announced a significant dividend increase, all indicating robust financial performance and confidence in future growth."
+      },
+      {
+        "ticker": "ARE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript presents a strongly positive outlook, emphasizing robust financial performance, growth targets, and a resilient tenant base. The company highlights a 'fortress balance sheet,' consistent dividend, and a 7% FFO growth target, while also detailing a healthy, expanding life science industry with significant new drug approvals."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "SW",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or guidance provided, and the absence of positive information typically implies a neutral or negative outlook."
+      },
+      {
+        "ticker": "SNDK",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or guidance provided, and the absence of a transcript suggests potential concerns."
+      },
+      {
+        "ticker": "WSM",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available from the earnings call transcript to support a positive outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2023Q4",
+    "long_top3": [
+      {
+        "ticker": "GOOG",
+        "llm_score": 100,
+        "reasoning_summary": "The company reports strong year-over-year revenue growth across all major segments, with specific examples of successful AI product integration and new features driving future growth. The forward-looking statements are explicitly optimistic about continued momentum in key areas like advertising and subscriptions."
+      },
+      {
+        "ticker": "GOOGL",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript highlights strong year-over-year revenue growth across all major business segments, driven by product innovation and AI initiatives. The forward-looking statements are confident, detailing new AI-powered products and services, and the company's operational discipline supports a positive outlook."
+      },
+      {
+        "ticker": "ABBV",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript details exceptional operational execution, strong growth across key platforms, and a very strong long-term outlook with specific, positive financial metrics and raised forecasts."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "SOLV",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or guidance provided, and the absence of positive information typically implies a neutral or negative outlook."
+      },
+      {
+        "ticker": "BF.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available from the earnings call transcript to support a positive outlook."
+      },
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available to support a positive outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2024Q1",
+    "long_top3": [
+      {
+        "ticker": "AES",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported a 100% increase in Q1 investment, driven by strategic growth in renewables and utilities, and reaffirmed its full-year guidance. Key business updates include a major 15-year contract with Amazon and a strong pipeline, demonstrating tangible progress and a clear growth path."
+      },
+      {
+        "ticker": "AMD",
+        "llm_score": 100,
+        "reasoning_summary": "The company reports record quarterly revenue and gross margin growth, driven by strong performance in its high-growth Data Center and Client segments. Forward-looking statements highlight accelerating adoption of key products, expanded investments in AI hardware and software, and a clear strategic focus on capturing major growth opportunities in AI infrastructure."
+      },
+      {
+        "ticker": "ADBE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript details record revenue and growth across all major product segments, driven by successful AI integration and strong customer adoption. Executives express high confidence in the product roadmap and future growth, citing new ARR milestones and a strong market opportunity. The forward-looking statements are explicitly optimistic about accelerating AI adoption and monetization."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "SW",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is typically interpreted as a negative signal for future performance."
+      },
+      {
+        "ticker": "ROST",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available from the earnings call transcript to support a positive outlook."
+      },
+      {
+        "ticker": "WSM",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or guidance provided, and the absence of positive information typically leads to a neutral or negative outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2024Q2",
+    "long_top3": [
+      {
+        "ticker": "ABBV",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript reports strong operational sales growth, robust performance of key drugs, and a raised guidance, indicating a very favorable outlook."
+      },
+      {
+        "ticker": "ADBE",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong financial results with 11% year-over-year revenue growth and 15% year-over-year non-GAAP EPS growth. The executives highlighted a successful product roadmap and AI integration across all major business segments, and the company raised its future financial targets."
+      },
+      {
+        "ticker": "AMD",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong financial results with record data center GPU revenue and double-digit EPS growth, driven by successful product ramps and market leadership. Forward-looking statements highlight a steep growth trajectory, strong demand for next-generation products, and strategic investments to expand its AI ecosystem, indicating strong future performance."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "SNDK",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is a negative signal for future performance."
+      },
+      {
+        "ticker": "EXPD",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available to support a positive outlook."
+      },
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive earnings call transcript available to support a positive outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2024Q3",
+    "long_top3": [
+      {
+        "ticker": "MU",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported record financial results, raised full-year guidance, and highlighted leadership in advanced technology and high-growth markets. The outlook is explicitly described as the strongest in the company's history, driven by strong demand and strategic positioning."
+      },
+      {
+        "ticker": "ARE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript highlights strong operational and financial performance, including increasing FFO per share, dividend growth, and exceptional rental rate and occupancy growth in a tough market. The company's development pipeline is described as robust, and its mega-campus strategy is positioned to meet future demand trends. The overall tone from leadership is one of optimism about the industry's promise and the company's strategic positioning."
+      },
+      {
+        "ticker": "ADBE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript details strong year-over-year growth across all major business segments, with executives expressing high enthusiasm for the company's strategic vision and product innovation, particularly in AI. The forward-looking statements are uniformly optimistic about the company's momentum and future growth drivers."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive earnings call transcript available to support a positive outlook."
+      },
+      {
+        "ticker": "BF.B",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is typically interpreted as a negative signal for future performance."
+      },
+      {
+        "ticker": "ALB",
+        "llm_score": 0,
+        "reasoning_summary": "The earnings call transcript reports a 41% year-over-year decline in net sales, a $1.1 billion loss, and a large $861 million asset write-off charge. The company is implementing significant cost-cutting measures including a 6-7% workforce reduction and a 50% reduction in capital expenditures, indicating severe operational stress and a defensive posture."
+      }
+    ]
+  },
+  {
+    "quarter": "2024Q4",
+    "long_top3": [
+      {
+        "ticker": "ADBE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript details record revenue, year-over-year growth, and transformative product innovation, with executives expressing strong confidence and excitement about future growth drivers like AI monetization and market expansion."
+      },
+      {
+        "ticker": "AKAM",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript highlights strong financial performance, significant year-over-year growth in key product segments, and ambitious forward-looking targets for future revenue acceleration. The language used is explicitly positive, emphasizing 'solid performance,' 'excellent progress,' and 'strong growth' across the business."
+      },
+      {
+        "ticker": "AMD",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript details record revenue, double-digit growth across all major segments, and strong forward-looking statements about continued market leadership and product roadmaps."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "EXPD",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available to support a positive outlook."
+      },
+      {
+        "ticker": "SNDK",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is a negative signal for future performance."
+      },
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive earnings call transcript available to support a positive outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2025Q1",
+    "long_top3": [
+      {
+        "ticker": "ARE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript is explicitly positive, highlighting the company's strong financial health, resilient tenant base, and strategic advantages in a critical industry. The leadership expresses unwavering confidence in the company's future, citing a robust development pipeline and a strong credit rating. The analysis focuses on the foundational strength of the life science sector and the company's unique, mission-driven role within it."
+      },
+      {
+        "ticker": "A",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong Q2 results, exceeding expectations for revenue and EPS, driven by growth across all markets and regions. The Ignite transformation initiative is successfully executing, providing a strong foundation for future growth and resilience against tariffs. The company maintains credible full-year guidance and expresses confidence in its long-term market fundamentals."
+      },
+      {
+        "ticker": "AKAM",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong Q1 2025 results with revenue growth, beating guidance for EPS and operating margin. The CEO highlighted robust demand for security products and new AI security offerings, and the CFO will provide positive future guidance."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "EXPD",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, and news headlines are neutral without positive catalysts, leading to a default negative outlook."
+      },
+      {
+        "ticker": "BF.B",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is typically interpreted as a negative signal for future performance."
+      },
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive earnings call transcript available to support a positive outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2025Q2",
+    "long_top3": [
+      {
+        "ticker": "ARE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript is overwhelmingly positive, highlighting a record-breaking lease, strong operational metrics, and a resilient industry outlook. The chairman's opening speech praises the team's 'true grit' and 'ferocious determination,' while the SVP of Life Science provides detailed, optimistic statistics on leasing, M&A activity, and licensing deals. The overall tone is one of confidence and progress despite macroeconomic headwinds, with no significant negative commentary on busine"
+      },
+      {
+        "ticker": "AMD",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript reports record revenue, margin expansion, and strong demand across all major business segments. The CEO explicitly states the company 'delivered very strong second quarter results' and sets a bullish outlook for future quarters, citing durable tailwinds and expanding market share."
+      },
+      {
+        "ticker": "A",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong quarterly results, exceeding guidance and raising full-year revenue forecasts. The CEO emphasizes durable momentum, broad-based growth, and successful strategic initiatives, indicating strong future performance."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "Q",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or guidance available to support a positive outlook."
+      },
+      {
+        "ticker": "BF.B",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is typically interpreted as a negative signal for future performance."
+      },
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or management commentary available to support a positive outlook."
+      }
+    ]
+  },
+  {
+    "quarter": "2025Q3",
+    "long_top3": [
+      {
+        "ticker": "AES",
+        "llm_score": 100,
+        "reasoning_summary": "The company's forward-looking statements are overwhelmingly positive, with strong operational progress, reaffirmed guidance, and a clear path to achieving financial targets."
+      },
+      {
+        "ticker": "ACN",
+        "llm_score": 100,
+        "reasoning_summary": "The company reported strong quarterly results with revenue growth, market share gains, and increased free cash flow, all exceeding expectations. The leadership explicitly expresses satisfaction with the results and outlines a clear, positive business outlook for the next fiscal year."
+      },
+      {
+        "ticker": "AFL",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript reports strong financial results across all key metrics, including record capital deployment, high profitability, and solid capital strength. The forward-looking statements express clear confidence in the company's strategy and market position, with no significant negative qualifiers."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "L",
+        "llm_score": 20,
+        "reasoning_summary": "The news highlights a major subsidiary hitting a 52-week low, which is a strong negative signal for the parent company's financial health and outlook."
+      },
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive financial results or management commentary available to support a positive outlook."
+      },
+      {
+        "ticker": "BF.B",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is typically interpreted as a negative signal for future performance."
+      }
+    ]
+  },
+  {
+    "quarter": "2025Q4",
+    "long_top3": [
+      {
+        "ticker": "MMM",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript details exceptional quarterly performance with strong organic growth, margin expansion, and record cash flow conversion. The forward-looking guidance for 2026 is explicitly optimistic, projecting continued growth in sales, margins, and earnings per share. The company's operational and cultural improvements are described with confidence and momentum, indicating a robust foundation for future success."
+      },
+      {
+        "ticker": "ACN",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript reports strong financial performance with record bookings, revenue growth, and margin expansion, and highlights strategic investments in high-growth areas like AI and acquisitions. The language is explicitly positive, describing the quarter as 'strong' and 'extraordinary,' and the company's outlook is forward-looking and confident."
+      },
+      {
+        "ticker": "ADBE",
+        "llm_score": 100,
+        "reasoning_summary": "The earnings call transcript details record financial performance, accelerated AI-driven product adoption, and strong growth targets, indicating robust momentum and leadership in the AI market."
+      }
+    ],
+    "short_top3": [
+      {
+        "ticker": "KVUE",
+        "llm_score": 0,
+        "reasoning_summary": "The stock price has experienced a 30% plunge, and Goldman Sachs has significantly lowered its price target, indicating severe negative market sentiment and deteriorating fundamentals."
+      },
+      {
+        "ticker": "BRK.B",
+        "llm_score": 0,
+        "reasoning_summary": "No positive catalysts or management guidance available from the earnings call transcript to support a positive outlook."
+      },
+      {
+        "ticker": "BF.B",
+        "llm_score": 0,
+        "reasoning_summary": "No earnings call transcript available, implying a lack of positive catalysts or transparency, which is typically interpreted as a negative signal for future performance."
+      }
+    ]
+  }
+]

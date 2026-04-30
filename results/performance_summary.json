@@ -1,0 +1,10 @@
+{
+  "cumulative_return": 0.2183,
+  "annualized_return": 0.0744,
+  "annualized_volatility": 0.1083,
+  "sharpe_ratio": 0.6875,
+  "max_drawdown": -0.0947,
+  "long_hit_rate": 0.8182,
+  "short_hit_rate": 0.3636,
+  "num_quarters": 11
+}
